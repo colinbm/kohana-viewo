@@ -11,7 +11,10 @@ class ViewO_Core_ViewO {
 		if ($action) $this->_action = $action;
 	}
 
+	protected function _setup() {}
+
 	public function _configure($template=null) {
+		$this->_setup();
 
 		$methods = get_class_methods($this);
 		$keys = get_object_vars($this);
