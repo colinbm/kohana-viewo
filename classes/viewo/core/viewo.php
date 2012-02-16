@@ -28,6 +28,7 @@ class ViewO_Core_ViewO {
 		foreach($keys as $key => $value) {
 			if (substr($key, 0, 1) != '_') {
 				$this->_template->$key = $value;
+				if ($this->_template->content) $this->_template->content->$key = $value;
 			}
 		}
 
