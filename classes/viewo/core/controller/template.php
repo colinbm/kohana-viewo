@@ -20,7 +20,7 @@ class ViewO_Core_Controller_Template extends Kohana_Controller_Template {
 		} elseif (Kohana::find_file('classes', $view_class_file)) {
 			$this->view = new $view_class_class($this->template, $action);
 		} else {
-			$this->view = new stdClass;
+			$this->view = new ViewO($this->template);
 		}
 	}
 
