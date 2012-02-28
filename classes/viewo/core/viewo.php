@@ -22,13 +22,14 @@ class ViewO_Core_ViewO {
 		foreach($methods as $method) {
 			if (substr($method, 0, 1) != '_' && !isset($keys[$method])) {
 				$this->_template->$method = $this->$method();
+				try { $this->_template->content->$method = $this->_template->$method; } catch (ErrorException $e) {}
 			}
 		}
 
 		foreach($keys as $key => $value) {
 			if (substr($key, 0, 1) != '_') {
 				$this->_template->$key = $value;
-				if ($this->_template->content) $this->_template->content->$key = $value;
+				try { $this->_template->content->$key = $value; } catch (ErrorException $e) {}
 			}
 		}
 
